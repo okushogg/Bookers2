@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 
-     resources :book
+  devise_for :users
+  root to: 'user/top'
+    resources :books
     resources :users 
 end
