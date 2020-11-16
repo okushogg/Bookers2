@@ -1,7 +1,7 @@
-<% form_with model:@book url:"books/#{@user.id}", local:true do |f| %>
+<%= form_with model:@book, local:true do |f| %>
 <p>Title</p>
-<%= f.text_feild :title %>
+<%= f.text_field :title %>
 <p>Opinion</p>
-<% f.text_area :opinion %>
+<%= f.text_area :opinion %><br>
 <%= f.submit 'Update Book'%>
 <% end %>
