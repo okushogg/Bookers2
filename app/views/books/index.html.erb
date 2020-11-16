@@ -1,4 +1,14 @@
-<table>
+
+
+<table border="1" cellspacing="10" cellpadding="5" width="500">
+    <thead>
+    <tr>
+    <th>User</th>
+    <th>Title</th>    
+    <th>Opinion</th>
+   
+    </tr>
+    </thead>
 <tbody>
   <% @books.each do |book| %>
     <tr>
@@ -10,11 +20,27 @@
 </tbody>
 </table>
 
-<% form_with model:@book , local:true do |f| %>
+
+<h1>User info</h1>
+<table>
+<tbody>
+    <% @user.each do |user| %>
+    <tr>
+      <td><%= user.profile_image %></td>
+      <td><%= user.name %></td>
+      <td><%= book.introduction %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+
+<h1>New book</h1>
+<%= form_with model:@book , local:true do |f| %>
 <p>Title</p>
 <%= f.text_field :title %>
 <p>Opinion</p>
-<% f.text_area :opinion %>
+<%= f.text_area :opinion %> </br>
 <%= f.submit 'Create Book'%>
 <% end %>
 
