@@ -1,2 +1,7 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<% form_with model:@book url:"books/#{@user.id}", local:true do |f| %>
+<p>Title</p>
+<%= f.text_feild :title %>
+<p>Opinion</p>
+<% f.text_area :opinion %>
+<%= f.submit 'Update Book'%>
+<% end %>
