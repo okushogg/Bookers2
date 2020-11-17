@@ -1,13 +1,14 @@
 <h1>Book detail</h1>
 <table border="1" cellspacing="10" cellpadding="5" width="500">
+    
     <thead>
-    <tr>
-    <th>User</th>
-    <th>Title</th>    
-    <th>Opinion</th>
-   
-    </tr>
+     <tr>
+     <th>User</th>
+     <th>Title</th>    
+     <th>Opinion</th>
+     </tr>
     </thead>
+    
 <tbody>
     <tr>
       <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', size:"50x50", fallback: "no_image.jpg" %><br>
@@ -19,3 +20,5 @@
     </tr>
 </tbody>
 </table>
+
+<%= render 'books/list', book: @book, user: @user %>
