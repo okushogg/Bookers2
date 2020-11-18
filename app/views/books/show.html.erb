@@ -1,3 +1,4 @@
+
 <h1>Book detail</h1>
 <table border="1" cellspacing="10" cellpadding="5" width="500">
     
@@ -13,10 +14,10 @@
     <tr>
       <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', size:"50x50", fallback: "no_image.jpg" %><br>
       <%= @user.name %></td>
-      <td><%= @book.title %></td>
-      <td><%= @book.opinion %></td>
+      <td><%= @book_detail.title %></td>
+      <td><%= @book_detail.opinion %></td>
       <td><%= link_to 'Edit', edit_book_path %></td>
-      <td><%= link_to 'Destroy',book_path(@book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+      <td><%= link_to 'Destroy',book_path(@book_detail.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
     </tr>
 </tbody>
 </table>
