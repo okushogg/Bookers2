@@ -1,11 +1,18 @@
 <%= render 'layouts/error_messages_users', user:@user  %>
-<h1>User info</h1>
-<%= form_with model:@user, local:true do |f| %>
-<p>Name</p>
-<%= f.text_field :name %>
-<p>Image</p>
-<%= f.attachment_field :profile_image %>
-<p>Introduction</p>
-<%= f.text_area :introduction %> <br>
-<%= f.submit 'Update User' %>
-<% end %>
+
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0">
+      <h1>User info</h1>
+      <%= form_with model:@user, local:true do |f| %>
+      <p>Name</p>
+      <%= f.text_field :name %>
+      <p>Image</p>
+      <%= f.attachment_field :profile_image %>
+      <p>Introduction</p>
+      <%= f.text_area :introduction %> <br>
+      <%= f.submit 'Update User', {class:"btn btn-success"} %>
+      <% end %>
+    </div>
+  </div>
+</div>
