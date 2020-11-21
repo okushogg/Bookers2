@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   def top
+    @user =current_user
   end
   
   def index
@@ -28,6 +29,7 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @book = Book.find(params[:id])
     if @book.user == current_user
       render "edit"
