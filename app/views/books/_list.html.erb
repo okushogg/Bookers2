@@ -15,16 +15,19 @@
         </tr>
       </tbody>
     </table>
-      <%= link_to  edit_user_path(user), class: 'btn btn-outline-secondary btn-block ' do %>
-        <i class="fas fa-user-edit"></i>
-      <% end %>
+    <% if user.id == current_user.id %>
+      <%= link_to  '' ,edit_user_path(user), class: 'fas fa-user-edit btn btn-outline-secondary btn-block' %>
+    <% else %>
+      <%= link_to  '' , user_path(user.id), class: 'fas fa-user-edit btn btn-outline-secondary btn-block' %>
+    <% end %>
+    
     <div class="new_book">
       <h1>New book</h1>
       <%= form_with model:book , local:true do |f| %>
       <p>Title</p>
       <%= f.text_field :title %>
       <p>Opinion</p>
-      <%= f.text_area :opinion %> </br>
+      <%= f.text_area :body %> </br>
       
          <%= f.submit 'Create Book', {class:"btn btn-success"} %>
       <% end %>
