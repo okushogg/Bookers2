@@ -15,11 +15,9 @@
         </tr>
       </tbody>
     </table>
-    <button type="button" class="btn btn-outline-secondary btn-block ">
-      <%= link_to  edit_user_path(user) do %>
+      <%= link_to  edit_user_path(user), class: 'btn btn-outline-secondary btn-block ' do %>
         <i class="fas fa-user-edit"></i>
       <% end %>
-    </button>
     <div class="new_book">
       <h1>New book</h1>
       <%= form_with model:book , local:true do |f| %>
