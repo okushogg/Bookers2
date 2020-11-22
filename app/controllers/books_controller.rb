@@ -1,7 +1,5 @@
 class BooksController < ApplicationController
-  def top
-    @user =current_user
-  end
+before_action :authenticate_user!  
   
   def index
     @books = Book.all
@@ -39,6 +37,7 @@ class BooksController < ApplicationController
   end
   
   def update
+    @user = current_user
     @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to book_path(@book.id),flash:{notice:'You have updated book successfully.'}
