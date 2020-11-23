@@ -39,6 +39,21 @@ body {
 }
 
 
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.actions {
+    margin: 5px;
+}
+
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
