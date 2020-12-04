@@ -48,8 +48,8 @@ before_action :authenticate_user!
     redirect_to books_path
   end
   
-  private
   
+  private
   def book_params
   params.require(:book).permit(:title,:body)
   end
