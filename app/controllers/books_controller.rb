@@ -4,8 +4,6 @@ before_action :authenticate_user!
   def index
     @books = Book.all
     @book = Book.new
-    @users = User.all
-    @user = current_user
   end
   
   def create 
@@ -14,7 +12,6 @@ before_action :authenticate_user!
     if @book.save
       redirect_to book_path(@book),flash:{notice:'You have created book successfully.'}
     else
-      @user = current_user
       @books = Book.all
       render "index"
     end
@@ -22,12 +19,12 @@ before_action :authenticate_user!
 
   def show
     @book_detail = Book.find(params[:id])
+    @book_comment = BookComment.new
     @book = Book.new
     @user = @book_detail.user
   end
 
   def edit
-    @user = current_user
     @book = Book.find(params[:id])
     if @book.user == current_user
       render "edit"
@@ -37,7 +34,6 @@ before_action :authenticate_user!
   end
   
   def update
-    @user = current_user
     @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to book_path(@book.id),flash:{notice:'You have updated book successfully.'}

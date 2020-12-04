@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'home#top'
   devise_for :users
 
-    resources :books
+    
     resources :users 
+    resources :books do
+      resources :book_comments, only: [:create, :destroy]
+    end
 end
