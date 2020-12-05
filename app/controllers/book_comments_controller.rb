@@ -4,11 +4,8 @@ class BookCommentsController < ApplicationController
     comment = BookComment.new(book_comments_params)
     comment.book_id = book.id
     comment.user_id = current_user.id
-    if comment.save
-      redirect_to book_path,flash:{notice:'You have psoted a comment successfully.'}
-    else
-      render 'books/show',flash:{notice:"You can't post comments with blank."}
-    end
+    comment.save
+    redirect_to book_path(book.id)
   end
   
   
