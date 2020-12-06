@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-xs-12">
     <% if @model == "user" %>
-      <% if @datas == nil %>
+      <% if @datas.blank? %>
       <h1>No such users.</h1>
       <% else %>
       <h2>Users search for '<%= @value %>'</h2>
@@ -31,7 +31,7 @@
     <% end %>
     
     <% elsif @model == "book" %>
-    <% if @datas == nil %>
+    <% if @datas.blank? %>
     <H2>No such books.</h2>
     <% else %>
     <h2>Books search for '<%= @value %>'</h2>
