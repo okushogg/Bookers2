@@ -13,6 +13,22 @@
           <th>introduction</th>
           <th><%= user.introduction %></th>
         </tr>
+        <tr>
+          <th>Follows</th>
+          <th>
+            <%=  link_to following_index_path(user.id) do %>
+              <%= user.following_user.count %>
+            <% end %>
+          </th>
+        </tr>
+        <tr>
+          <th>Followers</th>
+          <th>
+            <%=  link_to  followed_index_path(user.id) do %>
+              <%= user.followed_user.count %>
+            <% end %>
+          </th>
+        </tr>
       </tbody>
     </table>
     <% if current_user.id != user.id %>
@@ -22,6 +38,7 @@
         <%= link_to 'Follow', follow_path(user.id), method: :post, class:'btn btn-outline-secondary btn-success'  %>
       <% end %>
     <% end %>
+    
     <div class="row text-center">
       <%= link_to  ' ' ,edit_user_path(user), class:'btn btn-outline-secondary btn-block fas fa-user-cog' %>
     </div>
