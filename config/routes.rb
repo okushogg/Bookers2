@@ -9,9 +9,13 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       resources :book_comments, only: [:create, :destroy]
     end
-    get 'followed_index/:id' => 'relationships#followed_index', as: 'followed_index'
-
+    
+    
     post 'follow/:id' => 'relationships#follow', as: 'follow'
     post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' 
     get 'following_index/:id' => 'relationships#following_index', as: 'following_index'
+    get 'followed_index/:id' => 'relationships#followed_index', as: 'followed_index'
+    
+    get '/search' => 'search#search', as: 'search'
+    
 end
