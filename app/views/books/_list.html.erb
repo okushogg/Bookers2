@@ -15,9 +15,13 @@
         </tr>
       </tbody>
     </table>
-    
+    <% if current_user.following?(user) %>
+      <%= link_to 'Unfollow', unfollow_path(user.id), method: :post, class:'btn btn-danger' %>
+    <% else %>
+      <%= link_to 'Follow', follow_path(user.id), method: :post, class:'btn btn-success'  %>
+    <% end %>
     <div class="row text-center">
-      <%= link_to  ' ' ,edit_user_path(user), class: 'mdbtn btn-outline-secondary btn-block fas fa-user-cog' %>
+      <%= link_to  ' ' ,edit_user_path(user), class:'mdbtn btn-outline-secondary btn-block fas fa-user-cog' %>
     </div>
   
   
