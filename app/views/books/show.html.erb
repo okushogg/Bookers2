@@ -19,7 +19,9 @@
               <td>コメント件数：<%= @book_detail.book_comments.count %></td>
               
               <!--いいね！の表示-->
-              <%=  render 'favorites/favorite-btn', book: @book_detail %> 
+              <td class="favorite-btn-<%= @book_detail.id %>">
+                <%=  render  partial: 'favorites/favorite-btn', locals: { book: @book_detail} %> 
+              </td>
               
               <% if @user.id == current_user.id %>
                 <td><%= link_to 'Edit', edit_book_path, class:'btn btn-sm btn-success'%></td>
