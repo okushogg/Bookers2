@@ -7,6 +7,12 @@ class User < ApplicationRecord
                    uniqueness: true
   
   validates :introduction, length: {maximum: 50}
+  
+  validates :postal_code, presence: true
+  validates :prefecture_code, presence: true
+  validates :city, presence: true
+  validates :street, presence: true
+  
                    
                    
 
