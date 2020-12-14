@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'home/about'
   root to: 'home#top'
-  get 'mypage', to: 'homes#page'
+  
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
